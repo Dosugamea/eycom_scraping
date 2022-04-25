@@ -23,6 +23,8 @@ event_dict = {
     ActionKey.SELECT_TXT: settings.change_output_type,
     ActionKey.SELECT_WAIT: settings.change_wait,
     ActionKey.SELECT_NO_WAIT: settings.change_wait,
+}
+event_window_dict = {
     ActionKey.CHANGE_PATH: settings.change_output_path,
     ActionKey.SELECT_PATH: settings.change_output_path,
     ActionKey.ADD_KEYWORD: settings.add_keyword,
@@ -46,6 +48,8 @@ if __name__ == "__main__":
         # print(event, values)
         if event in event_dict.keys():
             event_dict[event](values)
+        if event in event_window_dict.keys():
+            event_window_dict[event](window, values)
         if event == ActionKey.START:
             start_process(settings)
         if event in (None, "Exit"):
